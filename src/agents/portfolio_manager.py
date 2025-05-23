@@ -6,6 +6,7 @@ from src.graph.state import AgentState, show_agent_reasoning
 from pydantic import BaseModel, Field
 from typing_extensions import Literal
 from src.utils.progress import progress
+from src.data import store
 from src.utils.llm import call_llm
 
 
@@ -73,6 +74,10 @@ def portfolio_management_agent(state: AgentState):
         content=json.dumps({ticker: decision.model_dump() for ticker, decision in result.decisions.items()}),
         name="portfolio_manager",
     )
+
+    # Record orders in the store
+    for ticker, decision in result.decisions.items():
+        store.record_order({"ticker": ticker, **decision.model_dump()})
 
     # Print the decision if the flag is set
     if state["metadata"]["show_reasoning"]:

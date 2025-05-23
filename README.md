@@ -1,5 +1,7 @@
 # AI Hedge Fund
 
+For a detailed architecture overview, see [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+
 This is a proof of concept for an AI-powered hedge fund.  The goal of this project is to explore the use of AI to make trading decisions.  This project is for **educational** purposes only and is not intended for real trading or investment.
 
 This system employs several agents working together:
@@ -39,6 +41,8 @@ This project is for **educational and research purposes only**.
 - Past performance does not indicate future results
 
 By using this software, you agree to use it solely for learning purposes.
+
+The architecture integrates optional **alternative data sources** like satellite foot traffic and credit card analytics. A FastAPI backend exposes monitoring endpoints under `/monitor` for signals, orders, risk, performance, and latency.
 
 ## Table of Contents
 - [Setup](#setup)

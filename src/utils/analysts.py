@@ -14,6 +14,7 @@ from src.agents.stanley_druckenmiller import stanley_druckenmiller_agent
 from src.agents.technicals import technical_analyst_agent
 from src.agents.valuation import valuation_agent
 from src.agents.warren_buffett import warren_buffett_agent
+from src.agents.alt_data_agent import alt_data_agent
 
 # Define analyst configuration - single source of truth
 ANALYST_CONFIG = {
@@ -86,6 +87,11 @@ ANALYST_CONFIG = {
         "display_name": "Valuation Analyst",
         "agent_func": valuation_agent,
         "order": 13,
+    },
+    "alt_data": {
+        "display_name": "Alt Data Analyst",
+        "agent_func": alt_data_agent,
+        "order": 14,
     },
 }
 
